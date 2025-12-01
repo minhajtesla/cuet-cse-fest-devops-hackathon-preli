@@ -94,6 +94,47 @@ NODE_ENV=
 
 **ADD WHAT EVER BEST PRACTICES YOU KNOW**
 
+## How to Run (Solution)
+
+This project has been containerized using Docker. You can run it in either **Development** or **Production** mode.
+
+### Prerequisites
+- Docker & Docker Compose
+- Make (optional, but recommended)
+
+### Quick Start (Production)
+
+1.  **Start the application:**
+    ```bash
+    make prod-up
+    # OR if you don't have Make:
+    # docker compose -f docker/compose.production.yaml up -d --build
+    ```
+
+2.  **Verify it's running:**
+    ```bash
+    make status
+    # OR: docker compose -f docker/compose.production.yaml ps
+    ```
+
+3.  **Stop the application:**
+    ```bash
+    make prod-down
+    ```
+
+### Development Mode
+For hot-reloading and development features:
+```bash
+make dev-up
+```
+
+### Key Features Implemented
+- **Multi-stage Dockerfiles** for optimized production images.
+- **Docker Compose** for orchestrating Backend, Gateway, and MongoDB.
+- **MongoDB Persistence** using Docker volumes.
+- **Security**: Backend and Database are isolated in a private network; only the Gateway is exposed.
+- **Makefile** for easy command execution.
+
 ## Testing
 
 Use the following curl commands to test your implementation.
